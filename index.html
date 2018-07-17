@@ -1,0 +1,93 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Scroll To Section</title>
+  <meta name="description" content="Scroll To Section">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style>
+    html, body {
+      height: 100%;
+    }
+
+    h1, h2 {
+      margin: 0;
+      padding: 0;
+    }
+
+    section {
+      position: relative;
+    }
+
+    .full_height {
+      height: 100%;
+      min-height: 350px;
+      position: relative;
+    }
+
+    .scrolling_section {
+      height:100%;
+    }
+
+    .scroll {
+      position: absolute;
+      bottom: 100px;
+      width: 100%;
+      text-align: center;
+      line-height: 50px;
+    }
+
+    a {
+      color: black;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="scrolling_section full_height">
+      <h1>Scroll to Section</h1>
+      <div class="scroll">
+        <a class="scrolling_to_next_section" href="#">Scroll down</a>
+      </div>
+  </header>
+  
+  <section class="scrolling_section full_height">
+      <h2>Section 1</h2>
+      <div class="scroll">
+        <a class="scrolling_to_next_section" href="#">Scroll down</a>
+      </div>
+  </section>
+
+  <section class="scrolling_section full_height">
+      <h2>Section 2</h2>
+      <div class="scroll">
+        <a class="scrolling_to_next_section" href="#">Scroll down</a>
+      </div>
+  </section>
+
+  <section class="scrolling_section full_height">
+      <h2>Section 3 (last)</h2>
+      <div class="scroll">
+        <a class="scrolling_to_top" href="#">Scroll top</a>
+      </div>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script>
+    $('a.scrolling_to_next_section').click(function(){
+        var nextSection = $(this).closest('.scrolling_section').next('.scrolling_section');
+        $('html, body').animate({
+            scrollTop: $(nextSection).offset().top
+        }, 1000);
+        return false;
+    });
+    $('a.scrolling_to_top').click(function(){
+        $('html, body').animate({scrollTop : 0}, 1000);
+        return false;
+      });
+  </script>
+</body>
+</html>
